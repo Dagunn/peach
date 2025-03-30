@@ -1,0 +1,138 @@
+.directions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @media(width<=992px) {
+        grid-template-columns: 1fr;
+    }
+
+    &__item {
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 260px;
+        position: relative;
+        overflow: hidden; 
+        color: $white;
+        transition: min-height .4s ease-in-out;
+
+        &--1 {
+            background-image: url('../../../public/images/directions/direction-1.png');
+        }
+        &--2 {
+            background-image: url('../../../public/images/directions/direction-2.png');
+        }
+
+        &--3 {
+            background-image: url('../../../public/images/directions/direction-3.png');
+        }
+
+        &--4 {
+            background-image: url('../../../public/images/directions/direction-4.png');
+        }
+
+        &--5 {
+            background-image: url('../../../public/images/directions/direction-5.png');
+
+            .directions__text {
+                @media(width<=450px) {
+                    padding: 10px;
+
+                    span {
+                        max-width: 260px;
+                        display: inline-block;
+                    }
+                 }
+            }
+           
+        }
+
+        &--6 {
+            background-image: url('../../../public/images/directions/direction-6.png');
+
+            .directions__text {
+                @media(width<=450px) {
+                    padding: 10px;
+
+                    span {
+                        max-width: 240px;
+                        display: inline-block;
+                    }
+                 }
+            }
+        }
+
+        @media(width<=992px) {
+            min-height: 60px;
+
+            &:hover {
+                min-height: 260px;
+               
+            }
+        }
+
+
+    
+    }
+
+    &__text {
+        background-color: rgba(45, 54, 83, 0.6);
+        padding: 28px 20px;
+        height: 80px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        transition: height 0.3s ease-in-out;
+
+        @media(width<=992px) {
+            padding: 20px 10px;
+            height: 60px;
+        }
+
+    }
+
+    &__title {
+       margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1;
+        position: relative;
+
+        @media(width<=992px) {
+            font-size: 20px;
+         }
+    }
+
+    &__arrow { 
+        position: absolute;
+        right: 0;
+        top: 10px;
+        display: none;
+
+        @media(width<=992px) {
+            display: block;
+        }
+    }
+
+    &__desc {
+        font-size: 17px;
+        line-height: 1.4;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+    }
+
+    &__item:hover &__text {
+        height: 100%;
+    }
+
+    &__item:hover &__desc {
+        height: auto;
+        opacity: 1;
+    }
+
+    &__item:hover &__arrow {
+        transform: rotate(-180deg);
+    }
+}
